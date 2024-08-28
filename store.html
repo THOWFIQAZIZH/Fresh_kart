@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freshkart</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.breadcrumb {
+  margin-top: 20px;
+}
+
+.navbar-custom {
+  background-color: #5CB85C;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.navbar-custom .navbar-brand img {
+  width: 150px;
+}
+
+.navbar-custom .navbar-nav li a {
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-custom .navbar-nav li a:hover {
+  background-color: #4CAF50; 
+  color: #ffffff;
+}
+
+.navbar-custom .navbar-nav li.active a {
+  background-color: #3A7F3A; 
+  color: #ffffff;
+}
+
+.navbar-custom .dropdown-menu {
+  background-color: #5CB85C;
+}
+
+.navbar-custom .dropdown-menu li a {
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-custom .dropdown-menu li a:hover {
+  background-color: #4CAF50;
+}
+
+.navbar-custom .navbar-nav.navbar-right li a {
+  color: #ffffff;
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-custom .navbar-nav.navbar-right li a:hover {
+  background-color: #4CAF50;
+}
+
+.navbar-custom .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Panel Styles */
+.panel {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.panel:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.t2 {
+  color: #213131;
+  font-size: 17.5px;
+  font-weight: bold;
+}
+
+.t3 {
+  color: #5C6C75BF;
+  font-size: 12.25px;
+}
+
+.t4,
+.t5 {
+  color: #5C6C75BF;
+  font-size: 12.25px;
+}
+
+.t6 {
+  color: #0AAD0A;
+  font-size: 12.25px;
+}
+
+.c {
+  color: #000000;
+  font-size: 10.5px;
+  background-color: #F0F3F2;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.a{
+  max-width: 100%;
+  height: auto;
+  border-radius: 0%;
+}
+
+
+@media (max-width: 767px) {
+  .panel {
+    margin-bottom: 20px;
+  }
+
+  .panel-body {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .panel {
+    margin-bottom: 20px;
+  }
+
+  .panel-body {
+    padding: 10px;
+  }
+}
+
+
+footer {
+  background-color: #2d2e33;
+  color: #bdb6b6;
+  padding: 40px 5%;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-col {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.footer-col h4 {
+  color: #f1bc0d;
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-transform: capitalize;
+  position: relative;
+}
+
+.footer-col h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 2px;
+  width: 50px;
+  background-color: #27c0ac;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #bdb6b6;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+  padding-left: 4px;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .footer-col {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 992px) {
+  .footer-col {
+    width: calc(25% - 20px);
+  }
+}
+
+</style>
+
+</head>
+<body>
+
+  
+  <nav class="navbar navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <img src="https://freshcart.codescandy.com/assets/images/logo/freshcart-logo.svg" alt="Freshkart">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="index.html">Home</a></li>
+        <li class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Stores <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="active"><a href="">Stores list</a></li>
+            <li><a href="store.html">Stores grid</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="menu.html">Butter</a></li>
+            <li><a href="menu.html">Milk drinks</a></li>
+            <li><a href="#">Eggs</a></li>
+            <li><a href="#">Cheese</a></li>
+            <li><a href="menu.html">Dairy product</a></li>
+            <li><a href="#">Fruit juice</a></li>
+            <li><a href="#">Batter</a></li>
+            <li><a href="#">Soft drinks</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="signin.html">Sign in</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="forgetpassword.html">Forget password</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Dashboard</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>	
+	<ul class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Store</a></li>
+        <li class="active">Store List</li>
+    </ul>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<img
+					src="C:\Users\thowf\OneDrive\Desktop\Hejax\Html\freshkart\image\Screenshot (615).png"
+					class="img-responsive img-rounded a" alt="..."> </div>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+				<p><Strong>We have 36 vendors now</Strong></p>
+
+			</div>
+		</div>
+	</div>
+
+    <div class="container">
+        <div class="row">
+           
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-1.svg" class="img-responsive" alt="E-Grocery Super Market">
+                        </div>
+                        <p class="t2">E-Grocery Super Market</p>
+                        <p class="t3">Organic / Groceries / Butcher Shop</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">7.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-2.svg" class="img-responsive" alt="DealShare Mart">
+                        </div>
+                        <p class="t2">DealShare Mart</p>
+                        <p class="t3">Alcohol / Groceries</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">7.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-3.svg" class="img-responsive" alt="DMart">
+                        </div>
+                        <p class="t2">DMart</p>
+                        <p class="t3">Groceries / Bakery Deli</p>
+                        <div class="row">
+                            <div class="col-xs-6 t6">Delivery by 10:30pm</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">7.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-4.svg" class="img-responsive" alt="Blinkit Store">
+                        </div>
+                        <p class="t2">Blinkit Store</p>
+                        <p class="t3">Meal kits / prepared meal / organic</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">40.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-5.svg" class="img-responsive" alt="StoreFront Super Market">
+                        </div>
+                        <p class="t2">StoreFront Super Market</p>
+                        <p class="t3">Groceries/Backery</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">28.1 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-6.svg" class="img-responsive" alt="BigBasket">
+                        </div>
+                        <p class="t2">BigBasket</p>
+                        <p class="t3">Groceries / Deli</p>
+                        <div class="row">
+                            <div class="col-xs-6 t6">Delivery by 10:30pm</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">7.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-7.svg" class="img-responsive" alt="Swiggy Instamart">
+                        </div>
+                        <p class="t2">Swiggy Instamart</p>
+                        <p class="t3">Meal kits / prepared meal / organic</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">40.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-8.svg" class="img-responsive" alt="Online Grocery mart">
+                        </div>
+                        <p class="t2">Online Grocery mart</p>
+                        <p class="t3">Groceries/Backery</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">28.1 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-9.svg" class="img-responsive" alt="Spencers">
+                        </div>
+                        <p class="t2">Spencers</p>
+                        <p class="t3">Groceries / Deli</p>
+                        <div class="row">
+                            <div class="col-xs-6 t6">Delivery by 10:30pm</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">7.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<div class="container">
+
+			<div class="row">
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+					<h2>Recently viewed</h2>
+
+
+				</div>
+			</div>
+		</div>
+		
+	<div class="container">
+        <div class="row">
+           
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-1.svg" class="img-responsive" alt="E-Grocery Super Market">
+                        </div>
+                        <p class="t2">E-Grocery Super Market</p>
+                        <p class="t3">Organic / Groceries / Butcher Shop</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">7.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-2.svg" class="img-responsive" alt="DealShare Mart">
+                        </div>
+                        <p class="t2">DealShare Mart</p>
+                        <p class="t3">Alcohol / Groceries</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">7.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-3.svg" class="img-responsive" alt="DMart">
+                        </div>
+                        <p class="t2">DMart</p>
+                        <p class="t3">Groceries / Bakery Deli</p>
+                        <div class="row">
+                            <div class="col-xs-6 t6">Delivery by 10:30pm</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">7.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-4.svg" class="img-responsive" alt="Blinkit Store">
+                        </div>
+                        <p class="t2">Blinkit Store</p>
+                        <p class="t3">Meal kits / prepared meal / organic</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">40.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-5.svg" class="img-responsive" alt="StoreFront Super Market">
+                        </div>
+                        <p class="t2">StoreFront Super Market</p>
+                        <p class="t3">Groceries/Backery</p>
+                        <div class="row">
+                            <div class="col-xs-6 t4">Delivery</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">28.1 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="c2">
+                            <img src="https://freshcart.codescandy.com/assets/images/stores-logo/stores-logo-6.svg" class="img-responsive" alt="BigBasket">
+                        </div>
+                        <p class="t2">BigBasket</p>
+                        <p class="t3">Groceries / Deli</p>
+                        <div class="row">
+                            <div class="col-xs-6 t6">Delivery by 10:30pm</div>
+                            <div class="col-xs-6 t5">Pickup available</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default sm c">7.5 mi away</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+
+    
+   
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Vegetables</a></li>
+                    <li><a href="#">Breakfast</a></li>
+                    <li><a href="#">Atta</a></li>
+                    <li><a href="#">Sauces</a></li>
+                    <li><a href="#">Organic</a></li>
+                    <li><a href="#">Baby Care</a></li>
+                    <li><a href="#">Cleaning Essentials</a></li>
+                    <li><a href="#">Personal Care</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get to Know Us</h4>
+                <ul>
+                    <li><a href="#">Company</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Our Values</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>For Consumers</h4>
+                <ul>
+                    <li><a href="#">Payments</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Product Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Become a Shopper</h4>
+                <ul>
+                    <li><a href="#">Shopper Opportunities</a></li>
+                    <li><a href="#">Become a Shopper</a></li>
+                    <li><a href="#">Earnings</a></li>
+                    <li><a href="#">Ideas & Guides</a></li>
+                    <li><a href="#">New Retailers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Freshkart. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+
+</html>
